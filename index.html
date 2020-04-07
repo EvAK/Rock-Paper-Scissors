@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+      
+    <script>
+        function computerPlay () {
+            let random_num = Math.floor(Math.random()*3);
+            let rps = ""
+            switch (random_num) {
+                case 0:
+                    rps = "Rock";
+                    break;
+                case 1:
+                    rps = "Paper";
+                    break;
+                case 2:
+                    rps = "Scissors";
+            }
+            return rps;
+        }
+
+        function playGame(playerSelection, computerSelection) {
+            let playerInput = playerSelection.toUpperCase();
+            let computerInput = computerSelection.toUpperCase();
+            let result = "";
+
+            if (playerInput === computerInput){
+                result = "Draw";
+            }
+            else if (playerInput === "ROCK"){
+                if (computerInput === "PAPER"){
+                    result = "You lose! Paper beats Rock";
+                }
+                else if (computerInput === "SCISSORS"){
+                    result = "You win! Rock beats Scissors";
+                }
+            }
+            else if (playerInput === "PAPER"){
+                if (computerInput === "SCISSORS"){
+                    result = "You lose! Scissors beats Paper";
+                }
+                else if (computerInput === "ROCK"){
+                    result = "You win! Paper beats Rock";
+                }
+            }
+            else if (playerInput === "SCISSORS"){
+                if (computerInput === "ROCK"){
+                    result = "You lose! Rock beats Scissors";
+                }
+                else if (computerInput === "PAPER"){
+                    result = "You win! Scissors beats Paper";
+                }
+            }
+            else {
+                result = "Please enter 'Rock', 'Paper' or 'Scissors'";
+            }
+            return result;
+        }
+
+        const playerSelection = "rock";
+        const computerSelection = computerPlay();
+        console.log(playGame(playerSelection, computerSelection));
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
